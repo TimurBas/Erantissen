@@ -5,7 +5,7 @@ const Heading: ComponentStyleConfig = {
   baseStyle: (props: StyleFunctionProps) => ({
     _hover: {
       color: mode("green.400", "#fffade")(props),
-      transition: "all 0.25s ease-in",
+      transition: "all 0.4s ease",
     },
     color: mode("green.500", "rgb(222,218,193)")(props),
   }),
