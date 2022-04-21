@@ -4,7 +4,7 @@ import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 const Button: ComponentStyleConfig = {
   baseStyle: (props: StyleFunctionProps) => ({
     _hover: {
-      color: mode("green.400", "#fffade")(props),
+      color: mode("gray.600", "#fffade")(props),
     },
     _focus: {
       boxShadow: "none",
@@ -22,6 +22,7 @@ const Button: ComponentStyleConfig = {
     primary: (props: StyleFunctionProps) => ({
       borderRadius: "none",
       _hover: {
+        color: mode("green.400", "#fffade")(props),
         borderBottom: mode(
           "5px solid #38A169",
           "5px solid rgb(222,218,193)"
@@ -30,9 +31,9 @@ const Button: ComponentStyleConfig = {
     }),
     search: (props: StyleFunctionProps) => ({
       bg: mode("gray.200", "blackAlpha.500")(props),
-      _hover: {
-        color: mode("gray.600", "#fffade")(props),
-      },
+    }),
+    cart: (props: StyleFunctionProps) => ({
+      bg: mode("gray.50", "rgb(17,52,46)")(props),
     }),
   },
   defaultProps: {},

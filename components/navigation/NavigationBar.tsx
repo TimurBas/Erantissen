@@ -1,17 +1,13 @@
-import { Flex } from "@chakra-ui/react"
-import Basket from "./Basket"
+import { Flex, HStack } from "@chakra-ui/react"
 import Categories from "./Categories"
 import Home from "./Home"
-import SearchBar from "./SearchBar"
 
 const NavigationBar = () => {
     return (
-        <Flex alignItems="center">
+        <HStack spacing={9} alignItems="center">
             <Home />
             <Categories />
-            <SearchBar />
-            <Basket />
-        </Flex>
+        </HStack>
     )
 }
 

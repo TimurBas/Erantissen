@@ -6,9 +6,9 @@ const ColorSwitch = () => {
 
     return (
         colorMode === "light" ?
-            <IconButton bg="#38A169" borderRadius="5" aria-label="switch" icon={<MoonIcon color="gray.300" w={6} h={6} />} onClick={toggleColorMode} />
+            <IconButton bg="blackAlpha.800" borderRadius={5} aria-label="switch" icon={<MoonIcon color="orange.200" w={6} h={6} />} onClick={toggleColorMode} />
             :
-            <IconButton bg="rgb(222,218,193)" borderRadius="5" aria-label="switch" icon={<SunIcon color="blackAlpha.700" w={6} h={6} />} onClick={toggleColorMode} />
+            <IconButton bg="blue.500" borderRadius={5} aria-label="switch" icon={<SunIcon color="yellow.100" w={6} h={6} />} onClick={toggleColorMode} />
     )
 }
 

@@ -1,9 +1,9 @@
-import { Flex, Button, Link } from "@chakra-ui/react";
+import { Flex, Button, Link, HStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 const Categories = () => {
     return (
-        <Flex>
+        <HStack spacing={6}>
             <NextLink href="/sundhed" passHref>
                 <Link>
                     <Button variant="primary">
@@ -39,7 +39,7 @@ const Categories = () => {
                     </Button>
                 </Link>
             </NextLink>
-        </Flex>
+        </HStack>
     );
 };
 

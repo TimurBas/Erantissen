@@ -1,16 +1,18 @@
 import { SearchIcon } from "@chakra-ui/icons"
-import { Button, Flex, Kbd, Text } from "@chakra-ui/react"
+import { Button, Flex, HStack, Kbd, Text } from "@chakra-ui/react"
 
 const SearchBar = () => {
     return (
         <Button variant="search">
-            <SearchIcon />
-            <Flex>
-                <Text>Søg efter et produkt</Text>
-                <span>
-                    <Kbd>Ctrl</Kbd><Kbd>K</Kbd>
-                </span>
-            </Flex>
+            <HStack spacing={2}>
+                <SearchIcon />
+                <HStack spacing={150}>
+                    <Text>Søg efter et produkt</Text>
+                    <span>
+                        <Kbd>Ctrl</Kbd><Kbd>K</Kbd>
+                    </span>
+                </HStack>
+            </HStack>
         </Button>
     )
 }
