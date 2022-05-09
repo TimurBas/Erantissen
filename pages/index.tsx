@@ -1,13 +1,11 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Hero from '../components/hero/Hero'
 
 const Home: NextPage = () => {
   return (
     <Box>
-      <Text>hi</Text>
+      <Hero />
     </Box>
   )
 }

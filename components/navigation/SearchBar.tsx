@@ -1,5 +1,5 @@
 import { SearchIcon } from "@chakra-ui/icons"
-import { Button, Flex, HStack, Kbd, Text } from "@chakra-ui/react"
+import { Button, HStack, Kbd, Text } from "@chakra-ui/react"
 
 const SearchBar = () => {
     return (

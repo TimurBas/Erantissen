@@ -15,12 +15,12 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <Box>
             <Box bg={bg}>
-                <Flex alignItems="center">
+                <Flex alignItems="center" ml={5}>
                     <HStack spacing={9}>
                         <NavigationBar />
                         <SearchBar />
                     </HStack>
-                    <HStack w="100%" justifyContent="flex-end" mr={8} alignItems="center">
+                    <HStack w="100%" justifyContent="flex-end" mr={5}>
                         <Basket />
                         <ColorSwitch />
                     </HStack>

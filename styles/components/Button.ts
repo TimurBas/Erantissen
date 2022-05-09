@@ -35,6 +35,17 @@ const Button: ComponentStyleConfig = {
     cart: (props: StyleFunctionProps) => ({
       bg: mode("gray.50", "rgb(17,52,46)")(props),
     }),
+    carouselArrow: (props: StyleFunctionProps) => ({
+      opacity: "0.85",
+      _hover: {
+        backgroundColor: mode("#e4e8eb", "#17453d")(props),
+        transition: "all 0.4s ease",
+      },
+      bg: mode("#F7FAFC", "rgb(17,52,46)")(props),
+      zIndex: "2",
+      position: "absolute",
+      borderRadius: "50%",
+    }),
   },
   defaultProps: {},
 };
