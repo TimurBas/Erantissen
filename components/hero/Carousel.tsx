@@ -1,6 +1,6 @@
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons"
-import { Image, IconButton, Flex, useColorMode, Text } from "@chakra-ui/react"
-import { useState, useEffect } from "react"
+import { Image, IconButton, Flex, useColorMode } from "@chakra-ui/react"
+import { useState } from "react"
 
 const Carousel = () => {
     const [current, setCurrent] = useState(0)

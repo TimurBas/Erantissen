@@ -1,10 +1,14 @@
-import { Box } from "@chakra-ui/react"
+import { Box, VStack } from "@chakra-ui/react"
 import Carousel from "./Carousel"
+import CarouselInfo from "./CarouselInfo"
 
 const Hero = () => {
     return (
         <Box>
-            <Carousel />
+            <VStack>
+                <Carousel />
+                <CarouselInfo />
+            </VStack>
         </Box>
     )
 }

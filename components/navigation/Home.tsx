@@ -7,7 +7,7 @@ const Home = () => {
             <Link>
                 <Flex align="center" p={2}>
                     {/* <Image src="/erantissen.png" alt="logo" display="block" /> */}
-                    <Heading>Erantissen</Heading>
+                    <Heading variant="logo">Erantissen</Heading>
                 </Flex>
             </Link>
         </NextLink >
