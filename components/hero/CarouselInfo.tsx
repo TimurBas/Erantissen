@@ -1,6 +1,8 @@
-import { Box, Button, Flex, Heading, Text, VStack } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, Text, useColorMode, VStack } from "@chakra-ui/react"
 
 const CarouselInfo = () => {
+    const { colorMode, toggleColorMode } = useColorMode()
+    const discountColor = colorMode == "light" ? "#48BB78" : "#0f2e29"
     return (
         <Flex position="relative" top={-250} left={-350}>
             <svg width="706px" height="282px" viewBox="0 0 706 282" fill="#f2f0e3">
@@ -8,7 +10,7 @@ const CarouselInfo = () => {
             </svg>
             <VStack alignItems="flex-start" top="15px" right="-50px" w={100} h={100} position="absolute" zIndex={2}>
                 <Box position="absolute">
-                    <svg width="120px" height="120px" viewBox="0 0 66 64" fill="#48BB78">
+                    <svg width="120px" height="120px" viewBox="0 0 66 64" fill={discountColor}>
                         <path d="M27.0675979,63.7329169 C20.9404987,63.7877567 15.1873072,62.381241 10.7839221,57.9840876 C5.65577937,52.8634231 1.73224233,46.9251473 0.903413825,39.4071119 C0.528883049,36.0120309 -0.102397609,32.6412539 0.0141369251,29.2069127 C0.274625884,21.5249811 2.57166488,14.6319946 8.0967728,9.08507538 C11.5360995,5.63203873 15.8728044,4.0715977 20.6419958,3.54875024 C25.4217813,3.02465643 30.2196389,2.71119722 34.779442,0.870948671 C37.7407902,-0.324309278 40.9439319,-0.160413115 43.9806848,0.588648436 C47.6424865,1.49163528 51.2369849,2.71306676 54.6364281,4.38630326 C57.8258599,5.95609198 59.9465392,8.51548948 60.9112208,11.9292658 C62.5414579,17.7036455 64.5842397,23.3783164 65.2610125,29.3919969 C65.6075002,32.4754882 66.2487517,35.5645882 65.8985249,38.6649053 C65.4398649,42.7199332 63.2487664,46.0327545 60.7840922,49.1486511 C57.624573,53.1419843 53.6991664,56.2647359 49.3873887,58.9207262 C46.9121204,60.4462692 44.0922339,60.9678703 41.3165932,61.6053827 C36.6221833,62.6822366 31.9321357,63.7914958 27.0675979,63.7329169" id="Fill-1"></path>
                     </svg>
                 </Box>
@@ -18,8 +20,8 @@ const CarouselInfo = () => {
                 </Flex>
             </VStack>
             <Flex alignItems="flex-start" justifyContent="flex-start" flexDir="column" position="absolute" p={10}>
-                <Heading fontSize={40} mb={3}>Vilde Priser på Probiotika fra NDS</Heading>
-                <Text>Probiotic Classic 10 med 15 udvalgte bakteriestammer i pulverform. Levende fra indtagelse og veldokumenteret overlevelse af stammerne i mave/tarm-kanalen.</Text>
+                <Heading variant="carouselHeading" fontSize={40} mb={3}>Vilde Priser på Probiotika fra NDS</Heading>
+                <Text variant="carouselText">Probiotic Classic 10 med 15 udvalgte bakteriestammer i pulverform. Levende fra indtagelse og veldokumenteret overlevelse af stammerne i mave/tarm-kanalen.</Text>
                 <Button variant="carouselButton" p={5} mt={3}>Find dem her</Button>
             </Flex>
         </Flex>

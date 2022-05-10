@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import Link from "./components/Link";
 import Image from "./components/Image";
 import Heading from "./components/Heading";
+import Text from "./components/Text";
 
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 
@@ -36,6 +37,7 @@ const theme = extendTheme({
     Link,
     Image,
     Heading,
+    Text,
   },
 });
 

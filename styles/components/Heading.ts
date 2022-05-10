@@ -12,6 +12,9 @@ const Heading: ComponentStyleConfig = {
       },
       color: mode("green.500", "rgb(222,218,193)")(props),
     }),
+    carouselHeading: (props: StyleFunctionProps) => ({
+      color: mode("#000000", "#0f2e29")(props),
+    }),
   },
   defaultProps: {},
 };

@@ -48,7 +48,7 @@ const Button: ComponentStyleConfig = {
     }),
     carouselButton: (props: StyleFunctionProps) => ({
       borderRadius: "24px",
-      bg: mode("green.400", "blackAlpha.800")(props),
+      bg: mode("green.400", "#0f2e29")(props),
       _hover: {
         color: mode("gray.800", "#fffade")(props),
       },
