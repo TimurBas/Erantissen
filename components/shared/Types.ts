@@ -1,4 +1,4 @@
-type HeroInfo = {
+type HeroModel = {
   imageNumber: number;
   imageUrl: string;
   heading: string;
@@ -8,4 +8,4 @@ type HeroInfo = {
   discountAmount: number;
 };
 
-export type { HeroInfo };
+export type { HeroModel };
