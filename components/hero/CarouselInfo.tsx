@@ -6,6 +6,7 @@ const CarouselInfo = ({ imageNumber }: { imageNumber: number }) => {
     const heroInfo = useContext(CarouselContext)
     const { colorMode } = useColorMode()
     const discountColor = colorMode == "light" ? "#48BB78" : "#0f2e29"
+
     return (
         <Flex position="relative" top={-250} left={-350}>
             <svg width="706px" height="282px" viewBox="0 0 706 282" fill="#f2f0e3">

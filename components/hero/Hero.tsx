@@ -1,4 +1,3 @@
-import { Box, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 import { HeroModel } from "../shared/Types";
@@ -13,13 +12,9 @@ const Hero = () => {
     }, [])
 
     return (
-        <Box>
-            <VStack>
-                <CarouselContext.Provider value={heros}>
-                    <Carousel />
-                </CarouselContext.Provider>
-            </VStack>
-        </Box>
+        <CarouselContext.Provider value={heros}>
+            <Carousel />
+        </CarouselContext.Provider>
     );
 };
 

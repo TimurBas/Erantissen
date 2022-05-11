@@ -31,7 +31,7 @@ const Carousel = () => {
                     aria-label='Left Carousel Arrow'
                     icon={colorMode == "light" ? <ArrowBackIcon color="blackAlpha.900" w={7} h={7} /> : <ArrowBackIcon color={colorMode} w={7} h={7} />}
                 />
-                {imageUrlsLength == 0 ? <Text>Loading</Text> : <Image src={imageUrls.find((path) => current == (imageUrls.indexOf(path)))} boxSize="100%" />}
+                {imageUrlsLength == 0 ? <Text>Loading</Text> : <Image src={imageUrls.find((path) => current == (imageUrls.indexOf(path)))} />}
                 <IconButton
                     variant="carouselArrow"
                     onClick={() => handleClick(false)}
