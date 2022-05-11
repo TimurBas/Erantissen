@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Heading, Text, useColorMode, VStack } from "@chakra-ui/react"
+import { HeroInfo } from "../shared/Types"
 
-const CarouselInfo = () => {
+const CarouselInfo = ({ heroInfo }: { heroInfo: HeroInfo[] }) => {
     const { colorMode, toggleColorMode } = useColorMode()
     const discountColor = colorMode == "light" ? "#48BB78" : "#0f2e29"
     return (
@@ -15,14 +16,14 @@ const CarouselInfo = () => {
                     </svg>
                 </Box>
                 <Flex position="relative" width="100%" height="100%" pt={5} pl={5} flexDir="column" alignItems="center">
-                    <Text fontWeight="bold" fontSize={20}>Spar</Text>
-                    <Text fontWeight="bold" fontSize={30}>26%</Text>
+                    <Text fontWeight="bold" fontSize={20}>{heroInfo[0].discountText}</Text>
+                    <Text fontWeight="bold" fontSize={30}>{heroInfo[0].discountAmount}%</Text>
                 </Flex>
             </VStack>
             <Flex alignItems="flex-start" justifyContent="flex-start" flexDir="column" position="absolute" p={10}>
-                <Heading variant="carouselHeading" fontSize={40} mb={3}>Vilde Priser på Probiotika fra NDS</Heading>
-                <Text variant="carouselText">Probiotic Classic 10 med 15 udvalgte bakteriestammer i pulverform. Levende fra indtagelse og veldokumenteret overlevelse af stammerne i mave/tarm-kanalen.</Text>
-                <Button variant="carouselButton" p={5} mt={3}>Find dem her</Button>
+                <Heading variant="carouselHeading" fontSize={40} mb={3}>{heroInfo[0].heading}</Heading>
+                <Text variant="carouselText">{heroInfo[0].paragraph}</Text>
+                <Button variant="carouselButton" p={5} mt={3}>{heroInfo[0].buttonText}</Button>
             </Flex>
         </Flex>
     )

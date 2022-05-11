@@ -2,24 +2,19 @@ import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons"
 import { Image, IconButton, Flex, useColorMode } from "@chakra-ui/react"
 import { useState } from "react"
 
-const Carousel = () => {
+const Carousel = ({ imageUrls }: { imageUrls: string[] }) => {
     const [current, setCurrent] = useState(0)
     const { colorMode } = useColorMode()
 
     const handleClick = (isLeftArrow: boolean) => {
         if (isLeftArrow) {
-            current ? setCurrent(current - 1) : setCurrent(pathsLength - 1)
+            current ? setCurrent(current - 1) : setCurrent(imageUrlsLength - 1)
         } else {
-            current == (pathsLength - 1) ? setCurrent(0) : setCurrent(current + 1)
+            current == (imageUrlsLength - 1) ? setCurrent(0) : setCurrent(current + 1)
         }
     }
 
-    const paths = [
-        "/hero1.jpg",
-        "/hero2.jpg",
-        "/hero3.jpg",
-    ]
-    const pathsLength = paths.length
+    const imageUrlsLength = imageUrls.length
 
     return (
         <Flex alignItems="center">
@@ -31,7 +26,7 @@ const Carousel = () => {
                 aria-label='Left Carousel Arrow'
                 icon={colorMode == "light" ? <ArrowBackIcon color="blackAlpha.900" w={7} h={7} /> : <ArrowBackIcon color={colorMode} w={7} h={7} />}
             />
-            <Image src={paths.find((path) => current == (paths.indexOf(path)))} boxSize="100%" />
+            <Image src={imageUrls.find((path) => current == (imageUrls.indexOf(path)))} boxSize="100%" />
             <IconButton
                 variant="carouselArrow"
                 onClick={() => handleClick(false)}
