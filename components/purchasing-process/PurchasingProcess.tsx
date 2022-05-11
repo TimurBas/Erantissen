@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem, Heading, HStack, Text, VStack } from "@chakra-ui/react"
+import { Flex, Grid, GridItem, Heading, HStack, Text, VStack, Divider } from "@chakra-ui/react"
 import { HiCursorClick } from 'react-icons/hi';
 import { BsBasket2Fill, BsFillCreditCardFill } from "react-icons/bs"
 import { FiPackage } from "react-icons/fi"
@@ -6,9 +6,10 @@ import { ArrowRightIcon } from "@chakra-ui/icons";
 
 const PurchasingProcess = () => {
     return (
-        <Flex justifyContent="center" alignItems="center" w="100vw" flexDirection="column">
+        <Flex justifyContent="center" alignItems="center" w="100vw" flexDirection="column" mt={-150}>
+            <Divider mb={50} />
             <Heading>Købs Processen</Heading>
-            <Grid templateColumns="repeat(11, 1fr)" gap={4} mt={20}>
+            <Grid templateColumns="repeat(11, 1fr)" gap={4} mt={10}>
                 <GridItem colSpan={2}>
                     <VStack>
                         <HiCursorClick size={35} />
