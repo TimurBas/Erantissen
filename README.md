@@ -1,4 +1,5 @@
 A webshop for my mother-in-law.
+Note that https://github.com/TimurBas/Erantissen-Backend should be run in the background for the website to work properly due to data fetching!
 
 ### How to run
 ```
