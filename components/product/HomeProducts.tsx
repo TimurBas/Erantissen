@@ -20,7 +20,6 @@ const HomeProducts = () => {
       .then((json) => setProducts(json));
   }, []);
 
-  console.log(products);
   return (
     <div className="flex justify-center items-center w-screen flex-col mb-10">
       <h1>Mest købte</h1>

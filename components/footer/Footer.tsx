@@ -7,12 +7,12 @@ const Footer = () => {
         <div>
           <h1 className="text-center mb-2">Navigation</h1>
           <div className="flex flex-col">
-            <Category categoryName="Hjem" path="/" />
-            <Category categoryName="Åbningstider" path="/aabningstider" />
-            <Category categoryName="Kontakt" path="/kontakt" />
+            <Category categoryName="Hjem" path="" />
+            <Category categoryName="Åbningstider" path="aabningstider" />
+            <Category categoryName="Kontakt" path="kontakt" />
             <Category
               categoryName="Handelsbetingelser"
-              path="/handelsbetingelser"
+              path="handelsbetingelser"
             />
           </div>
         </div>
