@@ -5,12 +5,12 @@ import Divider from "./Divider";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <>
+    <div>
       <NavigationBar />
       <Divider />
       <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

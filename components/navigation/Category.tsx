@@ -9,7 +9,10 @@ const Category = ({
 }) => {
   return (
     <NextLink href={`/${path}`}>
-      <button type="button" className="whitespace-nowrap">
+      <button
+        type="button"
+        className="whitespace-nowrap font-semibold text-gray-800  hover:text-gray-500 transition-all text-lg"
+      >
         {categoryName}
       </button>
     </NextLink>
