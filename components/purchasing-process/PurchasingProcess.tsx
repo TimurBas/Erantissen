@@ -1,6 +1,6 @@
 const PurchasingProcess = () => {
   return (
-    <div className="flex justify-center items-center w-screen flex-col mt-[-150px]">
+    <div className="flex justify-center items-center w-full flex-col mt-[-150px]">
       <h1>Købs Processen</h1>
       <div className="grid grid-cols-11 gap-4 mt-10">
         <div>

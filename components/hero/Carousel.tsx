@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { LeftArrow, RightArrow } from "./Arrows";
 import CarouselContext from "./CarouselContext";
 import CarouselInfo from "./CarouselInfo";
 
@@ -6,6 +7,7 @@ const Carousel = () => {
   const [current, setCurrent] = useState(0);
   const heros = useContext(CarouselContext);
   const imageUrls = heros.map((hero) => hero["imageUrl"]);
+  const imageUrlsLength = imageUrls.length;
 
   const handleClick = (isLeftArrow: boolean) => {
     if (isLeftArrow) {
@@ -15,12 +17,10 @@ const Carousel = () => {
     }
   };
 
-  const imageUrlsLength = imageUrls.length;
-
   return (
     <div className="flex flex-col">
-      <div className="flex items-center">
-        <p>left</p>
+      <div className="flex items-center relative">
+        <LeftArrow handleClick={handleClick} />
         {imageUrlsLength == 0 ? (
           <p>loading</p>
         ) : (
@@ -28,7 +28,7 @@ const Carousel = () => {
             src={imageUrls.find((path) => current == imageUrls.indexOf(path))}
           />
         )}
-        <p>right</p>
+        <RightArrow handleClick={handleClick} />
       </div>
       <CarouselInfo imageNumber={current} />
     </div>
