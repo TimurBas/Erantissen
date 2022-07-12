@@ -32,7 +32,11 @@ const Carousel = ({ heros }: { heros: HeroModel[] }) => {
         )}
         <RightArrow handleClick={handleClick} />
       </div>
-      <CarouselInfo hero={heros[current]} />
+      {heros.length == 0 ? (
+        <p>Loading</p>
+      ) : (
+        <CarouselInfo hero={heros[current]} />
+      )}
     </div>
   );
 };
