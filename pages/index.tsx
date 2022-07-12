@@ -11,7 +11,6 @@ const Home: NextPage = () => {
   return (
     <div>
       <Hero />
-      <Divider />
       <PurchasingProcess />
       <Divider />
       <HomeProducts />

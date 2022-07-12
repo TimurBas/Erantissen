@@ -1,11 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import { useState } from "react";
 import { LeftArrow, RightArrow } from "./Arrows";
-import CarouselContext from "./CarouselContext";
 import CarouselInfo from "./CarouselInfo";
+import { HeroModel } from "./Hero";
 
-const Carousel = () => {
+const Carousel = ({ heros }: { heros: HeroModel[] }) => {
   const [current, setCurrent] = useState(0);
-  const heros = useContext(CarouselContext);
   const imageUrls = heros.map((hero) => hero["imageUrl"]);
   const imageUrlsLength = imageUrls.length;
 
@@ -17,6 +16,8 @@ const Carousel = () => {
     }
   };
 
+  console.log(current);
+
   return (
     <div className="flex flex-col">
       <div className="flex items-center relative">
@@ -25,12 +26,13 @@ const Carousel = () => {
           <p>loading</p>
         ) : (
           <img
+            className="select-none"
             src={imageUrls.find((path) => current == imageUrls.indexOf(path))}
           />
         )}
         <RightArrow handleClick={handleClick} />
       </div>
-      <CarouselInfo imageNumber={current} />
+      <CarouselInfo hero={heros[current]} />
     </div>
   );
 };

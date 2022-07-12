@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import CONFIG from "../../config.json";
-import CarouselContext from "./CarouselContext";
 import Carousel from "./Carousel";
 
 export type HeroModel = {
@@ -23,9 +22,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <CarouselContext.Provider value={heros}>
-      <Carousel />
-    </CarouselContext.Provider>
+    <Carousel heros={heros} />
   );
 };
 
