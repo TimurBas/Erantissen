@@ -4,7 +4,7 @@ import { FiPackage } from "react-icons/fi";
 
 const PurchasingProcess = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-full ">
+    <div className="flex flex-col justify-center items-center w-full mt-6 mb-12">
       <h1 className="font-bold text-4xl">Købs Processen</h1>
       <div className="grid grid-cols-4 gap-4 mt-10">
         <div className="flex flex-col items-center">

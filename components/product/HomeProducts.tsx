@@ -21,9 +21,9 @@ const HomeProducts = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full flex-col mb-10">
-      <h1>Mest købte</h1>
-      <div className="grid grid-cols-4 gap-4 mt-7">
+    <div className="flex justify-center items-center w-full flex-col mb-10 mt-10">
+      <h1 className="font-bold text-4xl">Mest købte</h1>
+      <div className="grid grid-cols-4 gap-4 mt-10">
         {products.length == 0 ? (
           <p>Loading</p>
         ) : (
