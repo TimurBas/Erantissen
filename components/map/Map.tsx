@@ -22,8 +22,8 @@ const position = {
 };
 function Map() {
   return (
-    <div className="flex justify-center items-center mt-10 flex-col">
-      <h1 className="mb-10">Find os her!</h1>
+    <div className="flex justify-center items-center mt-10 mb-10 flex-col">
+      <h1 className="mb-10 font-bold text-4xl">Find os her!</h1>
       <LoadScript googleMapsApiKey="AIzaSyBZp72l6IhoUVzzT7XlmqjZQ9T3LhLni8o">
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={19}>
           {}
