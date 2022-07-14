@@ -11,7 +11,7 @@ const Category = ({
     <NextLink href={`/${path}`}>
       <button
         type="button"
-        className="whitespace-nowrap font-semibold text-gray-800  hover:text-gray-500 transition-all text-lg"
+        className="sm:text-base md:text-lg whitespace-nowrap font-semibold text-gray-800  hover:text-gray-500 transition-all"
       >
         {categoryName}
       </button>

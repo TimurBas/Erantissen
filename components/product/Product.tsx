@@ -4,7 +4,7 @@ const Product = ({ info }: { info: ProductModel }) => {
   return (
     <div>
       <div className="flex justify-center items-center">
-        <img src={info.imageUrl} />
+        <img className="" src={info.imageUrl} />
       </div>
       <div className="flex flex-col h-[100px] mt-5">
         <h1 className="font-bold text-xl">{info.title}</h1>
