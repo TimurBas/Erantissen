@@ -1,24 +1,7 @@
-import CONFIG from "../../config.json";
-import { useEffect, useState } from "react";
+import { ProductModel } from "../../shared/responses/ProductResponse";
 import Product from "./Product";
 
-export type ProductModel = {
-  title: string;
-  price: number;
-  description: string;
-  quantity: number;
-  imageUrl: string;
-};
-
-const HomeProducts = () => {
-  const [products, setProducts] = useState<ProductModel[]>([]);
-
-  useEffect(() => {
-    fetch(`${CONFIG.localUrl}/MostBoughtProducts`, { method: "GET" })
-      .then((response) => response.json())
-      .then((json) => setProducts(json));
-  }, []);
-
+const HomeProducts = ({ products }: { products: ProductModel[] }) => {
   return (
     <div className="flex justify-center items-center w-full flex-col mb-10 mt-10">
       <h1 className="font-bold text-4xl">Mest købte</h1>

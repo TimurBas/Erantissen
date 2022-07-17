@@ -1,4 +1,5 @@
 import React from "react";
+import { ProductModel } from "../../shared/responses/ProductResponse";
 import HomeProducts from "../product/HomeProducts";
 import Category from "./Category";
 
@@ -6,10 +7,12 @@ const CategoryPage = ({
   title,
   description,
   categories,
+  mostBoughtProducts,
 }: {
   title: string;
   description: string;
   categories: string[];
+  mostBoughtProducts: ProductModel[];
 }) => {
   return (
     <div className="flex flex-col items-center justify-center mt-5 mb-5">
@@ -25,7 +28,7 @@ const CategoryPage = ({
           ))}
         </div>
       </div>
-      <HomeProducts />
+      <HomeProducts products={mostBoughtProducts} />
     </div>
   );
 };

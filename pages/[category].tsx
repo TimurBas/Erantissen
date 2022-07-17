@@ -1,6 +1,7 @@
 import CategoryPage from "../components/category/CategoryPage";
 import CONFIG from "../config.json";
 import { GetServerSideProps } from "next";
+import { ProductModel } from "../shared/responses/ProductResponse";
 
 type CategoryModel = {
   title: string;
@@ -13,31 +14,53 @@ type Subcategory = {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const categoryTitle = context.query.category as string;
-
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-  const req = await fetch(`${CONFIG.localUrl}/Category/${categoryTitle}`, {
-    method: "GET",
-  });
-  const res: CategoryModel = await req.json();
+
+  const categoryTitle = context.query.category as string;
+  const category = await fetchCategory(categoryTitle);
+
+  const mostBoughtProducts = await fetchMostBoughtProducts();
 
   return {
-    props: { res },
+    props: { category, mostBoughtProducts },
   };
 };
 
-const Category = ({ res }: { res: CategoryModel }) => {
-  const subcategories = res.subcategories.map((sc) => sc.title);
+const Category = ({
+  category,
+  mostBoughtProducts,
+}: {
+  category: CategoryModel;
+  mostBoughtProducts: ProductModel[];
+}) => {
+  const subcategories = category.subcategories.map((sc) => sc.title);
 
   return (
     <div>
       <CategoryPage
-        title={res.title}
-        description={res.description}
+        title={category.title}
+        description={category.description}
         categories={subcategories}
+        mostBoughtProducts={mostBoughtProducts}
       />
     </div>
   );
+};
+
+const fetchCategory = async (categoryTitle: string) => {
+  const req = await fetch(`${CONFIG.localUrl}/Category/${categoryTitle}`, {
+    method: "GET",
+  });
+  const res = req.json();
+  return res;
+};
+
+const fetchMostBoughtProducts = async () => {
+  const req = await fetch(`${CONFIG.localUrl}/MostBoughtProducts`, {
+    method: "GET",
+  });
+  const res = await req.json();
+  return res;
 };
 
 export default Category;
