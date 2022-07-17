@@ -9,7 +9,7 @@ export type HeroModel = {
   paragraph: string;
   buttonText: string;
   discountText: string;
-  discountAmount: number;
+  discount: string;
 };
 
 const Hero = () => {
@@ -21,9 +21,7 @@ const Hero = () => {
       .then((json) => setHeros(json));
   }, []);
 
-  return (
-    <Carousel heros={heros} />
-  );
+  return <Carousel heros={heros} />;
 };
 
 export default Hero;

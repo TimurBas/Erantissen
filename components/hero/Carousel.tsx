@@ -16,8 +16,6 @@ const Carousel = ({ heros }: { heros: HeroModel[] }) => {
     }
   };
 
-  console.log(current);
-
   return (
     <div className="flex flex-col">
       <div className="flex items-center relative">

@@ -8,7 +8,6 @@ export type ProductModel = {
   description: string;
   quantity: number;
   imageUrl: string;
-  tag: string;
 };
 
 const HomeProducts = () => {
@@ -28,18 +27,9 @@ const HomeProducts = () => {
           <p>Loading</p>
         ) : (
           <>
-            <div>
-              <Product info={products[0]} />
-            </div>
-            <div>
-              <Product info={products[1]} />
-            </div>
-            <div>
-              <Product info={products[2]} />
-            </div>
-            <div>
-              <Product info={products[3]} />
-            </div>
+            {products.map((p) => (
+              <Product key={p.title} info={p} />
+            ))}
           </>
         )}
       </div>

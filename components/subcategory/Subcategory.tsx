@@ -1,15 +1,9 @@
 import React from "react";
 import NextLink from "next/link";
 
-const Category = ({
-  categoryTitle,
-  title,
-}: {
-  categoryTitle: string;
-  title: string;
-}) => {
+const Category = ({ title }: { title: string }) => {
   return (
-    <NextLink href={`/${categoryTitle}/${title}`}>
+    <NextLink href={`/${title}`}>
       <div className="flex flex-col justify-center items-center mb-5 hover:cursor-pointer hover:opacity-90">
         <img
           className="w-28 h-28 bg-white rounded-full p-2 hover:p-1 transition-all"

@@ -17,7 +17,7 @@ const CarouselInfo = ({ hero }: { hero: HeroModel }) => {
       <div className="absolute right-0 z-1 top-10">
         <DiscountTag
           text={hero.discountText}
-          amount={hero.discountAmount}
+          amount={hero.discount}
           color="rgb(34,197,94)"
         />
       </div>

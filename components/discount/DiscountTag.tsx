@@ -6,7 +6,7 @@ const DiscountTag = ({
   color,
 }: {
   text: string;
-  amount: number;
+  amount: string;
   color: string;
 }) => {
   return (
@@ -23,7 +23,7 @@ const DiscountTag = ({
       </svg>
       <div className="flex flex-col relative pt-8 items-center">
         <p className="font-bold text-2xl">{text}</p>
-        <p className="font-bold text-xl">{amount}%</p>
+        <p className="font-bold text-xl">{amount}</p>
       </div>
     </div>
   );
