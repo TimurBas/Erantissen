@@ -1,6 +1,6 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Hero from "../components/hero/Hero";
-import HomeProducts from "../components/product/HomeProducts";
+import Products from "../components/product/Products";
 import PurchasingProcess from "../components/purchasing-process/PurchasingProcess";
 import Divider from "../components/shared/Divider";
 import Map from "../components/map/Map";
@@ -29,7 +29,7 @@ const Home = ({
       <Hero heros={heros} />
       <PurchasingProcess />
       <Divider />
-      <HomeProducts products={mostBoughtProducts} />
+      <Products heading="Mest købte" products={mostBoughtProducts} />
       <Divider />
       <Map />
     </div>

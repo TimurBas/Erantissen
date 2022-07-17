@@ -1,11 +1,11 @@
 type SubcategoryModel = {
   title: string;
   imageUrl: string;
-  products: Products[];
-  mostBoughtProducts: Products[];
+  products: ProductsModel[];
+  mostBoughtProducts: ProductsModel[];
 };
 
-type Products = {
+type ProductsModel = {
   title: string;
   price: number;
   description: string;
@@ -13,4 +13,4 @@ type Products = {
   imageUrl: string;
 };
 
-export type { SubcategoryModel, Products };
+export type { SubcategoryModel, ProductsModel };

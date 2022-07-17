@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductModel } from "../../shared/responses/ProductResponse";
-import HomeProducts from "../product/HomeProducts";
+import Products from "../product/Products";
 import Category from "./Category";
 
 const CategoryPage = ({
@@ -24,11 +24,11 @@ const CategoryPage = ({
         <h1 className="font-bold text-4xl">Kategorier</h1>
         <div className="grid grid-cols-5 mt-5">
           {categories.map((title) => (
-            <Category categoryTitle={title} title={title} />
+            <Category title={title} />
           ))}
         </div>
       </div>
-      <HomeProducts products={mostBoughtProducts} />
+      <Products heading={"Mest købte"} products={mostBoughtProducts} />
     </div>
   );
 };
