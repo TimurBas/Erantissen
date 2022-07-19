@@ -9,6 +9,7 @@ import { HeroModel } from "../shared/responses/HeroResponse";
 import { ProductModel } from "../shared/responses/ProductResponse";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   const heros: HeroModel = await fetchHeros();
   const mostBoughtProducts = await fetchMostBoughtProducts();
 

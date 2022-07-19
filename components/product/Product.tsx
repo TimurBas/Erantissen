@@ -1,11 +1,23 @@
 import { ProductModel } from "../../shared/responses/ProductResponse";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
+import CONFIG from "../../config.json";
 
 const Product = ({ info }: { info: ProductModel }) => {
   const { pathname } = useRouter();
+  let fullPath = `/${pathname}/${info.title}`;
+  // if (fullPath == "//") {
+  //   const findFullPath = async () => {
+  //     const req = await fetch(
+  //       `${CONFIG.localUrl}/Subcategory/${info.subCategoryTitle}`
+  //     );
+  //     const res = await req.json();
+  //     return res;
+  //   };
+  // }
+
   return (
-    <NextLink href={`/${pathname}/${info.title}`}>
+    <NextLink href={fullPath}>
       <div className="hover:cursor-pointer">
         <div className="flex justify-center items-center">
           <img className="" src={info.imageUrl} />

@@ -2,16 +2,7 @@ import CategoryPage from "../components/category/CategoryPage";
 import CONFIG from "../config.json";
 import { GetServerSideProps } from "next";
 import { ProductModel } from "../shared/responses/ProductResponse";
-
-type CategoryModel = {
-  title: string;
-  description: string;
-  subcategories: Subcategory[];
-};
-
-type Subcategory = {
-  title: string;
-};
+import { CategoryModel } from "../shared/responses/CategoryResponse";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";

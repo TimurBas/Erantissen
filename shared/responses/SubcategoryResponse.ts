@@ -3,6 +3,7 @@ type SubcategoryModel = {
   imageUrl: string;
   products: ProductsModel[];
   mostBoughtProducts: ProductsModel[];
+  categoryTitle: string
 };
 
 type ProductsModel = {
