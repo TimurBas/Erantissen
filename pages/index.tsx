@@ -44,7 +44,7 @@ const fetchHeros = async () => {
 };
 
 const fetchMostBoughtProducts = async () => {
-  const req = await fetch(`${CONFIG.localUrl}/MostBoughtProducts`, {
+  const req = await fetch(`${CONFIG.localUrl}/Product/MostBoughtProducts`, {
     method: "GET",
   });
   const res = await req.json();

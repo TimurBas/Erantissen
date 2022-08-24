@@ -6,7 +6,7 @@ import ColorSwitch from "./ColorSwitch";
 
 const NavigationBar = () => {
   return (
-    <div className="sticky top-0 z-10 bg-slate-200 dark:bg-green-800">
+    <div className="sticky top-0 z-10 bg-primary dark:bg-primary-dark">
       <div className="flex justify-center items-center ml-5">
         <div className="flex space-x-9">
           <div className="flex items-center space-x-9">

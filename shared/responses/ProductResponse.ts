@@ -4,5 +4,6 @@ export type ProductModel = {
   description: string;
   quantity: number;
   imageUrl: string;
-  subCategoryTitle: string
+  subCategoryTitle: string;
+  categoryTitle: string;
 };

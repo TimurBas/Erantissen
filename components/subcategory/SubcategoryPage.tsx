@@ -1,7 +1,6 @@
 import React from "react";
 import { ProductModel } from "../../shared/responses/ProductResponse";
 import Products from "../product/Products";
-import Product from "../product/Product";
 
 const SubcategoryPage = ({
   title,
