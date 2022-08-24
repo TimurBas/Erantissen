@@ -1,2 +1,1 @@
-- Products shown at landing page has an invalid href passed to next/router.'
-- Weird but with darkMode.js calling the API.
+- Code duplication for the fetchMostBoughtProducts function inside index.tsx, [subcategory].tsx etc. etc. possible fix?

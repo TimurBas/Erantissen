@@ -5,7 +5,7 @@ import Divider from "./Divider";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="bg-slate-100 dark:bg-green-800 ">
+    <div className="bg-slate-100 dark:bg-primary-dark">
       <NavigationBar />
       <Divider />
       <main>{children}</main>
