@@ -27,6 +27,7 @@ const Subcategory = ({ subcategory }: { subcategory: SubcategoryModel }) => {
 };
 
 const fetchSubcategory = async (subcategoryTitle: string) => {
+  console.log(subcategoryTitle);
   const req = await fetch(
     `${CONFIG.localUrl}/Subcategory/${subcategoryTitle}`,
     {

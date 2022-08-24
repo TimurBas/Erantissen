@@ -1,0 +1,2 @@
+- Products shown at landing page has an invalid href passed to next/router.'
+- Weird but with darkMode.js calling the API.

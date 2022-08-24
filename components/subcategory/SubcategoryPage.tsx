@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductsModel } from "../../shared/responses/SubcategoryResponse";
+import { ProductModel } from "../../shared/responses/ProductResponse";
 import Products from "../product/Products";
 import Product from "../product/Product";
 
@@ -9,8 +9,8 @@ const SubcategoryPage = ({
   mostBoughtProducts,
 }: {
   title: string;
-  products: ProductsModel[];
-  mostBoughtProducts: ProductsModel[];
+  products: ProductModel[];
+  mostBoughtProducts: ProductModel[];
 }) => {
   return (
     <div className="flex flex-col items-center justify-center mt-5 mb-5">

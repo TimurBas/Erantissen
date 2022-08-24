@@ -1,29 +1,16 @@
-import { useEffect, useState } from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
+import { useTheme } from "next-themes";
 
 const ColorSwitch = () => {
-  const [darkMode, setDarkMode] = useState<boolean | undefined>(undefined);
+  const { theme, setTheme } = useTheme();
 
-  useEffect(() => {
-    setDarkMode(document.documentElement.classList.contains("dark"));
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      window.document.documentElement.classList.add("dark");
-      localStorage.setItem("erantissenDarkMode", "true");
-    } else {
-      window.document.documentElement.classList.remove("dark");
-      localStorage.setItem("erantissenDarkMode", "false");
-    }
-  }, [darkMode]);
-
-  const onClick = () => {
-    setDarkMode(!darkMode);
+  const handleSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
   };
+
   return (
     <div
-      onClick={onClick}
+      onClick={() => handleSwitch()}
       className="flex justify-center items-center bg-gray-800 rounded-md w-10 h-10 hover:bg-gray-500 transition-all cursor-pointer"
     >
       <BsFillMoonStarsFill className="w-6 h-6 text-orange-300" />

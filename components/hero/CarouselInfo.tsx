@@ -1,5 +1,5 @@
 import DiscountTag from "../discount/DiscountTag";
-import { HeroModel } from "./Hero";
+import { HeroModel } from "../../shared/responses/HeroResponse";
 
 const CarouselInfo = ({ hero }: { hero: HeroModel }) => {
   return (

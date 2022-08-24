@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LeftArrow, RightArrow } from "./Arrows";
 import CarouselInfo from "./CarouselInfo";
-import { HeroModel } from "./Hero";
+import { HeroModel } from "../../shared/responses/HeroResponse";
 
 const Carousel = ({ heros }: { heros: HeroModel[] }) => {
   const [current, setCurrent] = useState(0);
