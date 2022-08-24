@@ -1,46 +1,15 @@
-import { Flex, Button, Link, HStack } from "@chakra-ui/react";
-import NextLink from "next/link";
+import Category from "./Category";
 
 const Categories = () => {
-    return (
-        <HStack spacing={6}>
-            <NextLink href="/sundhed" passHref>
-                <Link>
-                    <Button variant="primary">
-                        Sundhed
-                    </Button>
-                </Link>
-            </NextLink>
-            <NextLink href="/skønhed" passHref>
-                <Link>
-                    <Button variant="primary">
-                        Skønhed
-                    </Button>
-                </Link>
-            </NextLink>
-            <NextLink href="/mad-og-drikke" passHref>
-                <Link>
-                    <Button variant="primary">
-                        Mad & drikke
-                    </Button>
-                </Link>
-            </NextLink>
-            <NextLink href="/personlig-pleje" passHref>
-                <Link>
-                    <Button variant="primary">
-                        Personlig Pleje
-                    </Button>
-                </Link>
-            </NextLink>
-            <NextLink href="/tilbud" passHref>
-                <Link>
-                    <Button variant="primary">
-                        Tilbud
-                    </Button>
-                </Link>
-            </NextLink>
-        </HStack>
-    );
+  return (
+    <div className="flex space-x-6 w-full">
+      <Category categoryName="Sundhed" path="sundhed" />
+      <Category categoryName="Skønhed" path="skoenhed" />
+      <Category categoryName="Mad & Drikke" path="mad og drikke" />
+      <Category categoryName="Personlig Pleje" path="personlig pleje" />
+      <Category categoryName="Tilbud" path="tilbud" />
+    </div>
+  );
 };
 
 export default Categories;

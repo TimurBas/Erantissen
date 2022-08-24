@@ -1,17 +1,15 @@
-import { Flex, Heading, Image, Link } from "@chakra-ui/react";
-import NextLink from "next/link"
-
+import NextLink from "next/link";
 const Home = () => {
-    return (
-        <NextLink href="/" passHref>
-            <Link>
-                <Flex align="center" p={2}>
-                    {/* <Image src="/erantissen.png" alt="logo" display="block" /> */}
-                    <Heading variant="logo">Erantissen</Heading>
-                </Flex>
-            </Link>
-        </NextLink >
-    )
-}
+  return (
+    <NextLink href="/">
+      <button
+        type="button"
+        className="whitespace-nowrap sm:text-2xl md:text-5xl  text-green-700 font-bold hover:text-green-500 transition-all"
+      >
+        Erantissen
+      </button>
+    </NextLink>
+  );
+};
 
-export default Home
+export default Home;

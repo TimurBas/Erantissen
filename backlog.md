@@ -1,5 +1,2 @@
-Bugs:
-
-# Make carousel images responsive
-
-# Carousel has a slight white column on the RHS (if CarouselInfo removed then it fixes it)
+- Products shown at landing page has an invalid href passed to next/router.'
+- Weird but with darkMode.js calling the API.

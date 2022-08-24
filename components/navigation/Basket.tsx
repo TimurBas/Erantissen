@@ -1,20 +1,18 @@
-import { Icon, Text, Button, VStack, Tooltip } from "@chakra-ui/react"
-import { BsBasket2Fill } from "react-icons/bs"
-import { useRouter } from 'next/router'
+import { BsBasket2Fill } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const Basket = () => {
-    const router = useRouter()
+  const router = useRouter();
 
-    return (
-        <Tooltip label="Se kurv">
-            <Button variant="cart" onClick={() => router.push("/kasse")} h={20} borderRadius="none">
-                <VStack spacing={0}>
-                    <Icon as={BsBasket2Fill} w={8} h={8} />
-                    <Text>Kurv</Text>
-                </VStack>
-            </Button>
-        </Tooltip>
-    )
-}
-
-export default Basket
+  return (
+    <div className="flex justify-center items-center p-2 text-gray-800  hover:text-gray-500 transition-all">
+      <button onClick={() => router.push("/kasse")}>
+        <div className="inset-0">
+          <BsBasket2Fill className="w-8 h-8" />
+          <p>Kurv</p>
+        </div>
+      </button>
+    </div>
+  );
+};
+export default Basket;

@@ -1,49 +1,42 @@
-import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons"
-import { Image, IconButton, Flex, useColorMode, Text, VStack } from "@chakra-ui/react"
-import { useContext, useState } from "react"
-import CarouselContext from "./CarouselContext"
-import CarouselInfo from "./CarouselInfo"
+import { useState } from "react";
+import { LeftArrow, RightArrow } from "./Arrows";
+import CarouselInfo from "./CarouselInfo";
+import { HeroModel } from "../../shared/responses/HeroResponse";
 
-const Carousel = () => {
-    const [current, setCurrent] = useState(0)
-    const { colorMode } = useColorMode()
-    const heros = useContext(CarouselContext)
-    const imageUrls = heros.map((hero) => hero["imageUrl"])
+const Carousel = ({ heros }: { heros: HeroModel[] }) => {
+  const [current, setCurrent] = useState(0);
+  const imageUrls = heros.map((hero) => hero["imageUrl"]);
+  const imageUrlsLength = imageUrls.length;
 
-    const handleClick = (isLeftArrow: boolean) => {
-        if (isLeftArrow) {
-            current ? setCurrent(current - 1) : setCurrent(imageUrlsLength - 1)
-        } else {
-            current == (imageUrlsLength - 1) ? setCurrent(0) : setCurrent(current + 1)
-        }
+  const handleClick = (isLeftArrow: boolean) => {
+    if (isLeftArrow) {
+      current ? setCurrent(current - 1) : setCurrent(imageUrlsLength - 1);
+    } else {
+      current == imageUrlsLength - 1 ? setCurrent(0) : setCurrent(current + 1);
     }
+  };
 
-    const imageUrlsLength = imageUrls.length
+  return (
+    <div className="flex flex-col">
+      <div className="flex items-center relative">
+        <LeftArrow handleClick={handleClick} />
+        {imageUrlsLength == 0 ? (
+          <p>loading</p>
+        ) : (
+          <img
+            className="select-none"
+            src={imageUrls.find((path) => current == imageUrls.indexOf(path))}
+          />
+        )}
+        <RightArrow handleClick={handleClick} />
+      </div>
+      {heros.length == 0 ? (
+        <p>Loading</p>
+      ) : (
+        <CarouselInfo hero={heros[current]} />
+      )}
+    </div>
+  );
+};
 
-    return (
-        <VStack>
-            <Flex alignItems="center">
-                <IconButton
-                    variant="carouselArrow"
-                    onClick={() => handleClick(true)}
-                    left="1rem"
-                    ml={5}
-                    aria-label='Left Carousel Arrow'
-                    icon={colorMode == "light" ? <ArrowBackIcon color="blackAlpha.900" w={7} h={7} /> : <ArrowBackIcon color={colorMode} w={7} h={7} />}
-                />
-                {imageUrlsLength == 0 ? <Text>Loading</Text> : <Image src={imageUrls.find((path) => current == (imageUrls.indexOf(path)))} />}
-                <IconButton
-                    variant="carouselArrow"
-                    onClick={() => handleClick(false)}
-                    right="1rem"
-                    mr={5}
-                    aria-label='Right Carousel Arrow'
-                    icon={colorMode == "light" ? <ArrowForwardIcon color="blackAlpha.900" w={7} h={7} /> : <ArrowForwardIcon color={colorMode} w={7} h={7} />}
-                />
-            </Flex >
-            <CarouselInfo imageNumber={current} />
-        </VStack>
-    )
-}
-
-export default Carousel
+export default Carousel;

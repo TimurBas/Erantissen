@@ -1,22 +1,43 @@
-import { Box, Flex, Text, Image, Heading, Button } from "@chakra-ui/react";
-import { ProductModel } from "../shared/Types";
+import { ProductModel } from "../../shared/responses/ProductResponse";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
+import CONFIG from "../../config.json";
 
 const Product = ({ info }: { info: ProductModel }) => {
-    return (
-        <Box>
-            <Flex justifyContent="center" alignItems="center">
-                <Image src={info.imageUrl} />
-            </Flex>
-            <Flex flexDir="column" h={100} mt={5}>
-                <Heading fontSize={22}>{info.title}</Heading>
-                <Text maxW={250}>{info.description}</Text>
-            </Flex>
-            <Flex alignItems="center" mt={7}>
-                <Heading fontSize={20} mr={5}>{info.price} DKK</Heading>
-                <Button variant="product">Tilføj til kurven</Button>
-            </Flex>
-        </Box>
-    )
-}
+  const { pathname } = useRouter();
+  let fullPath = `/${pathname}/${info.title}`;
+  // if (fullPath == "//") {
+  //   const findFullPath = async () => {
+  //     const req = await fetch(
+  //       `${CONFIG.localUrl}/Subcategory/${info.subCategoryTitle}`
+  //     );
+  //     const res = await req.json();
+  //     return res;
+  //   };
+  // }
 
-export default Product
+  return (
+    <NextLink href={fullPath}>
+      <div className="hover:cursor-pointer">
+        <div className="flex justify-center items-center">
+          <img className="" src={info.imageUrl} />
+        </div>
+        <div className="flex flex-col h-[100px] mt-5">
+          <h1 className="font-bold text-xl">{info.title}</h1>
+          <p className="max-w-[250px]">{info.description}</p>
+        </div>
+        <div className="flex items-center mt-7">
+          <h1 className="mr-5 font-bold">{info.price} DKK</h1>
+          <button
+            className="bg-green-500 py-2 px-2 rounded-md hover:bg-green-700 transition-all"
+            type="button"
+          >
+            <p className="font-semibold">Tilføj til kurven</p>
+          </button>
+        </div>
+      </div>
+    </NextLink>
+  );
+};
+
+export default Product;

@@ -1,50 +1,31 @@
-import { Flex, Grid, GridItem, Heading, HStack, Text, VStack, Divider } from "@chakra-ui/react"
-import { HiCursorClick } from 'react-icons/hi';
-import { BsBasket2Fill, BsFillCreditCardFill } from "react-icons/bs"
-import { FiPackage } from "react-icons/fi"
-import { ArrowRightIcon } from "@chakra-ui/icons";
+import { HiCursorClick } from "react-icons/hi";
+import { BsBasket2Fill, BsFillCreditCardFill } from "react-icons/bs";
+import { FiPackage } from "react-icons/fi";
 
 const PurchasingProcess = () => {
-    return (
-        <Flex justifyContent="center" alignItems="center" w="100vw" flexDirection="column" mt={-150}>
-            <Divider mb={50} />
-            <Heading>Købs Processen</Heading>
-            <Grid templateColumns="repeat(11, 1fr)" gap={4} mt={10}>
-                <GridItem colSpan={2}>
-                    <VStack>
-                        <HiCursorClick size={35} />
-                        <Text fontSize={17} fontWeight="bold">Vælg dine varer</Text>
-                    </VStack>
-                </GridItem>
-                <GridItem>
-                    <ArrowRightIcon boxSize={25} />
-                </GridItem>
-                <GridItem colSpan={2}>
-                    <VStack>
-                        <BsBasket2Fill size={35} />
-                        <Text fontSize={17} fontWeight="bold">Gå til kassen</Text>
-                    </VStack>
-                </GridItem>
-                <GridItem>
-                    <ArrowRightIcon boxSize={25} />
-                </GridItem>
-                <GridItem colSpan={2}>
-                    <VStack>
-                        <BsFillCreditCardFill size={35} />
-                        <Text fontSize={17} fontWeight="bold">Betal</Text>
-                    </VStack>
-                </GridItem>
-                <GridItem >
-                    <ArrowRightIcon boxSize={25} />
-                </GridItem>
-                <GridItem colSpan={2}>
-                    <VStack>
-                        <FiPackage size={35} />
-                        <Text fontSize={17} fontWeight="bold">Afhent dine varer i butikken</Text>
-                    </VStack>
-                </GridItem>
-            </Grid>
-        </Flex>)
-}
+  return (
+    <div className="flex flex-col justify-center items-center w-full mt-6 mb-12">
+      <h1 className="font-bold text-4xl">Købs Processen</h1>
+      <div className="grid grid-cols-4 gap-4 mt-10">
+        <div className="flex flex-col items-center">
+          <HiCursorClick className="w-8 h-8 text-green-700" />
+          <p className="text-lg font-semibold">Vælg dine varer</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <BsBasket2Fill className="w-8 h-8 text-green-700" />
+          <p className="text-lg font-semibold">Gå til kassen</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <BsFillCreditCardFill className="w-8 h-8 text-green-700" />
+          <p className="text-lg font-semibold">Betal for varerne</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <FiPackage className="w-8 h-8 text-green-700" />
+          <p className="text-lg font-semibold">Afhent dine varer i butikken</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default PurchasingProcess
+export default PurchasingProcess;
