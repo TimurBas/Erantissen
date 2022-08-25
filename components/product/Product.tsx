@@ -22,7 +22,7 @@ const Product = ({ info }: { info: ProductModel }) => {
       <div className="flex items-center mt-7">
         <h1 className="mr-5 font-bold">{info.price} DKK</h1>
         <button
-          onClick={() => dispatch(addProductToCart(info))}
+          onClick={() => dispatch(addProductToCart({ ...info, cartAmount: 1 }))}
           className="px-2 py-2 transition-all bg-green-500 rounded-md hover:bg-green-700"
           type="button"
         >
