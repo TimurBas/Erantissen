@@ -40,7 +40,7 @@ const Checkout = ({
           <Products heading="Indkøbsliste" products={products} />
         </div>
       )}
-      <Products heading={"Mest købte"} products={mostBoughtProducts} />
+      <Products heading={"Andre købte også"} products={mostBoughtProducts} />
     </div>
   );
 };
