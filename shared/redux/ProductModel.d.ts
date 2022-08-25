@@ -5,6 +5,6 @@ export type ProductModel = {
   quantity: number;
   imageUrl: string;
   cartAmount: number;
-  subCategoryTitle: string;
+  subcategoryTitle: string;
   categoryTitle: string;
 };

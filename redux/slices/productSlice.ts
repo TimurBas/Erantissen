@@ -25,5 +25,10 @@ export const productSlice = createSlice({
 export const { addProductToCart } = productSlice.actions;
 
 export const getProductsSelector = (state: AppState) => state.products;
+export const getProductsLengthSelector = (state: AppState) =>
+  state.products.reduce(
+    (partialSum, product) => partialSum + product.cartAmount,
+    0
+  );
 
 export default productSlice.reducer;

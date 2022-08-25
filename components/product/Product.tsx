@@ -4,8 +4,9 @@ import { addProductToCart } from "../../redux/slices/productSlice";
 import { useAppDispatch } from "../../redux/hooks";
 
 const Product = ({ info }: { info: ProductModel }) => {
+  console.log(info.subcategoryTitle);
   const dispatch = useAppDispatch();
-  const productPath = `/${info.categoryTitle}/${info.subCategoryTitle}/${info.title}`;
+  const productPath = `/${info.categoryTitle}/${info.subcategoryTitle}/${info.title}`;
   return (
     <div>
       <NextLink href={productPath}>
