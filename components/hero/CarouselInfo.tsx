@@ -21,10 +21,10 @@ const CarouselInfo = ({ hero }: { hero: HeroModel }) => {
           color="rgb(34,197,94)"
         />
       </div>
-      <div className="flex items-start justify-start flex-col relative p-10">
-        <h2 className="mb-3 font-bold text-4xl max-w-lg">{hero.heading}</h2>
+      <div className="relative flex flex-col items-start justify-start p-10 text-black">
+        <h2 className="max-w-lg mb-3 text-4xl font-bold">{hero.heading}</h2>
         <p className="max-w-lg">{hero.paragraph}</p>
-        <button className="py-3 px-5 mt-3 bg-green-500 rounded-full hover:bg-green-700 transition-all">
+        <button className="px-5 py-3 mt-3 text-white transition-all bg-green-500 rounded-full hover:bg-green-700">
           <p className="font-semibold">{hero.buttonText}</p>
         </button>
       </div>
