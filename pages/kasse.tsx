@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { ProductModel } from "../shared/responses/ProductResponse";
 import CONFIG from "../config.json";
 import { useEffect, useState } from "react";
-import Script from "next/script";
 
 declare var Reepay: any;
 
@@ -56,7 +55,7 @@ const Kasse = ({
       locale: "da_DK",
       payment_methods: ["card", "mobilepay"],
       order: {
-        handle: "order-1234567723",
+        handle: "order-12345679723",
         customer: {
           handle: "customer-123",
           first_name: "John",
@@ -89,10 +88,6 @@ const Kasse = ({
 
   return (
     <div>
-      <Script
-        src="https://checkout.reepay.com/checkout.js"
-        strategy="beforeInteractive"
-      />
       <div className="flex items-center justify-center mt-24 mb-24">
         <div
           id="reepay-checkout"
