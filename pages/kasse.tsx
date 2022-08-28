@@ -6,9 +6,9 @@ import { useRouter } from "next/router";
 import { ProductModel } from "../shared/responses/ProductResponse";
 import CONFIG from "../config.json";
 import { useEffect, useState } from "react";
-import { Elements } from "@stripe/react-stripe-js";
-import { Stripe } from "@stripe/stripe-js";
-import initializeStripe from "../stripe/initializeStripe";
+import Script from "next/script";
+
+declare var Reepay: any;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -18,6 +18,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
+type EmbeddedResponse = {
+  id: string; // The current session id
+  invoice: string; // Invoice/charge handle
+  customer: string; // Customer handle
+  subscription: string; // Subscription handle
+  payment_method: string; // Payment method if a new one is created
+  error: string; // The error code
+};
+
 const Kasse = ({
   mostBoughtProducts,
 }: {
@@ -25,45 +34,46 @@ const Kasse = ({
 }) => {
   const products = useAppSelector(getProductsSelector);
   const router = useRouter();
-  const [stripe, setStripe] = useState<Stripe | null>(null);
+  const [reepay, setReepay] = useState<any>(null);
+  const [id, setId] = useState("");
 
   useEffect(() => {
-    async function getStripe() {
-      const stripe = await initializeStripe();
-      setStripe(stripe);
-    }
-
-    getStripe();
+    var rp = new Reepay.EmbeddedCheckout(null, {
+      html_element: "reepay-checkout",
+    });
+    rp.addEventHandler(Reepay.Event.Accept, (data: EmbeddedResponse) => {
+      console.log(data);
+    });
+    rp.addEventHandler(Reepay.Event.Error, (data: EmbeddedResponse) => {
+      console.log(data);
+      // TODO TELL THAT SOMETHING WENT WRONG AND GO TO CHECKOUT AGAIN
+    });
+    setReepay(rp);
   }, []);
 
   const handleCheckout = async () => {
-    const amountWithoutVAT = products.reduce(
-      (prev, product) => prev + product.price * product.cartAmount,
-      0
-    );
-
-    const taxRate = 2500; // 25% Moms
-
     const requestObj = {
-      cancel_url: "http://localhost:3000/kasse",
-      success_url: "http://localhost:3000/checkout-success",
-      mode: "payment",
-      line_items: products.map((p) => {
-        return {
-          price: {
-            currency: "DKK",
-            product: "prod_id31231",
-            unit_amount: p.price,
-          },
-          quantity: p.cartAmount,
-          tax_rates: {
-            display_name: "MOMS",
-            inclusive: false,
-            percentage: 25,
-            country: "DK",
-          },
-        };
-      }),
+      locale: "da_DK",
+      payment_methods: ["card", "mobilepay"],
+      order: {
+        handle: "order-1234567723",
+        customer: {
+          handle: "customer-123",
+          first_name: "John",
+          last_name: "Doe",
+          phone: "+4531313131",
+        },
+        order_lines: products.map((p) => {
+          return {
+            ordertext: p.title,
+            amount: Math.ceil(p.price),
+            quantity: p.cartAmount,
+            vat: 0.25,
+            amount_incl_vat: false,
+          };
+        }),
+        currency: "DKK",
+      },
     };
 
     const request = await fetch(`${CONFIG.localUrl}/Checkout`, {
@@ -72,32 +82,54 @@ const Kasse = ({
       body: JSON.stringify(requestObj),
     });
     const json = await request.json();
+    var id = json.id;
+    setId(id);
+    reepay.show(id);
   };
 
   return (
     <div>
-      {products.length == 0 ? (
-        <div className="flex flex-col items-center justify-center mt-24 mb-24 gap-y-16">
-          <h1 className="text-4xl font-bold">Din indkøbsliste er tom!</h1>
-          <button
-            className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
-            onClick={() => router.push("/")}
-          >
-            Til Erantissen
-          </button>
-        </div>
+      <Script
+        src="https://checkout.reepay.com/checkout.js"
+        strategy="beforeInteractive"
+      />
+      <div className="flex items-center justify-center mt-24 mb-24">
+        <div
+          id="reepay-checkout"
+          className={`w-[500px] h-[500px] ${id == "" ? "hidden" : "block"}`}
+        ></div>
+      </div>
+      {id == "" ? (
+        <>
+          {products.length == 0 ? (
+            <div className="flex flex-col items-center justify-center mt-24 mb-24 gap-y-16">
+              <h1 className="text-4xl font-bold">Din indkøbsliste er tom!</h1>
+              <button
+                className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
+                onClick={() => router.push("/")}
+              >
+                Til Erantissen
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center mt-4 mb-4 gap-y-16">
+              <Products heading="Indkøbsliste" products={products} />
+              <button
+                className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
+                onClick={handleCheckout}
+              >
+                Køb nu
+              </button>
+            </div>
+          )}
+          <Products
+            heading={"Andre købte også"}
+            products={mostBoughtProducts}
+          />
+        </>
       ) : (
-        <div className="flex flex-col items-center justify-center mt-4 mb-4 gap-y-16">
-          <Products heading="Indkøbsliste" products={products} />
-          <button
-            className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
-            onClick={handleCheckout}
-          >
-            Køb nu
-          </button>
-        </div>
+        <div></div>
       )}
-      <Products heading={"Andre købte også"} products={mostBoughtProducts} />
     </div>
   );
 };
