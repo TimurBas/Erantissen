@@ -11,6 +11,8 @@
   "dependencies": {
     "@react-google-maps/api": "^2.10.2",
     "@reduxjs/toolkit": "^1.8.5",
+    "@stripe/react-stripe-js": "^1.10.0",
+    "@stripe/stripe-js": "^1.35.0",
     "@types/react-transition-group": "^4.4.5",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
@@ -19,7 +21,8 @@
     "react-icons": "^4.3.1",
     "react-redux": "^8.0.2",
     "react-transition-group": "^4.4.2",
-    "react-vertical-timeline-component": "^3.5.2"
+    "react-vertical-timeline-component": "^3.5.2",
+    "stripe": "^10.5.0"
   },
   "devDependencies": {
     "@types/node": "17.0.33",

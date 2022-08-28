@@ -1,4 +1,5 @@
 {
   "localUrl": "https://localhost:44385",
-  "productionUrl": ""
+  "productionUrl": "",
+  "netsEasyCheckoutKey": "test-checkout-key-4207776c4e464cbc856b02e980e26c38"
 }
