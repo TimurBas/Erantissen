@@ -6,19 +6,17 @@ import ColorSwitch from "./ColorSwitch";
 
 const NavigationBar = () => {
   return (
-    <div className="sticky top-0 z-10 pt-2 pb-2 bg-nav dark:bg-nav-dark">
-      <div className="flex items-center justify-center ml-5">
-        <div className="flex space-x-9">
-          <div className="flex items-center space-x-9">
-            <Home />
-            <Categories />
-          </div>
+    <div className="flex items-center justify-center sticky top-0 z-10 pt-2 pb-2 bg-nav dark:bg-nav-dark shadow">
+      <div className="flex space-x-9">
+        <div className="flex items-center space-x-9">
+          <Home />
+          <Categories />
           <SearchBar />
         </div>
-        <div className="flex items-center justify-end w-full gap-3 mr-5">
-          <Basket />
-          <ColorSwitch />
-        </div>
+      </div>
+      <div className="flex items-center justify-end w-full gap-3 ">
+        <Basket />
+        <ColorSwitch />
       </div>
     </div>
   );

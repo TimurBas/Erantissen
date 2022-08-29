@@ -4,7 +4,7 @@ const Home = () => {
     <NextLink href="/">
       <button
         type="button"
-        className="whitespace-nowrap font-bold sm:text-2xl md:text-5xl text-green-700 dark:text-primary hover:text-green-600 dark:hover:text-green-200 transition-all"
+        className="ml-5 whitespace-nowrap font-bold sm:text-2xl md:text-5xl text-green-700 dark:text-primary hover:text-green-600 dark:hover:text-green-200 transition-all"
       >
         Erantissen
       </button>
