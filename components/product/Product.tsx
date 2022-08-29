@@ -2,10 +2,22 @@ import { ProductModel } from "../../shared/responses/ProductResponse";
 import NextLink from "next/link";
 import { addProductToCart } from "../../redux/slices/productSlice";
 import { useAppDispatch } from "../../redux/hooks";
+import { useState } from "react";
+import SuccessToaster from "../toasters/SuccessToaster";
 
 const Product = ({ info }: { info: ProductModel }) => {
+  const [isToasterShown, setIsToasterShown] = useState(false);
   const dispatch = useAppDispatch();
   const productPath = `/${info.categoryTitle}/${info.subcategoryTitle}/${info.title}`;
+
+  const handleClick = () => {
+    dispatch(addProductToCart({ ...info, cartAmount: 1 }));
+    setIsToasterShown(true);
+    setTimeout(() => {
+      setIsToasterShown(false);
+    }, 3000);
+  };
+
   return (
     <div>
       <NextLink href={productPath}>
@@ -22,13 +34,14 @@ const Product = ({ info }: { info: ProductModel }) => {
       <div className="flex items-center mt-7">
         <h1 className="mr-5 font-bold">{info.price} DKK</h1>
         <button
-          onClick={() => dispatch(addProductToCart({ ...info, cartAmount: 1 }))}
+          onClick={handleClick}
           className="px-2 py-2 transition-all bg-green-500 rounded-md hover:bg-green-700"
           type="button"
         >
           <p className="font-semibold">Tilføj til kurven</p>
         </button>
       </div>
+      {isToasterShown && <SuccessToaster title={info.title} />}
     </div>
   );
 };
