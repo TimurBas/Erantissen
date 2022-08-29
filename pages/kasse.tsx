@@ -73,12 +73,12 @@ const Cart = () => {
       },
     };
 
-    const request = await fetch(`${CONFIG.localUrl}/Checkout`, {
+    const response = await fetch(`${CONFIG.localUrl}/Checkout`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestObj),
     });
-    const json = await request.json();
+    const json = await response.json();
     var id = json.id;
     setId(id);
     reepay.show(id);

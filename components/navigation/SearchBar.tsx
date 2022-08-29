@@ -1,5 +1,31 @@
+import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import CONFIG from "../../config.json";
+import { ProductModel } from "../../shared/responses/ProductResponse";
+
+const fetchAllProducts = async () => {
+  var response = await fetch(`${CONFIG.localUrl}/Product`, {
+    method: "POST",
+  });
+  const json = await response.json();
+  return json;
+};
+
 const SearchBar = () => {
+  const [products, setProducts] = useState<ProductModel[]>([]);
+
+  useEffect(() => {
+    async function fetchMyApi() {
+      const response = await fetch(`${CONFIG.localUrl}/Product`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+      const json = await response.json();
+      setProducts(json);
+    }
+    fetchMyApi();
+  }, []);
+
   return (
     <div className="flex">
       <div className="relative w-[300px]">
