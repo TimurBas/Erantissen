@@ -38,7 +38,7 @@ const Product = ({ info }: { info: ProductModel }) => {
           className="px-2 py-2 transition-all bg-green-500 rounded-md hover:bg-green-700"
           type="button"
         >
-          <p className="font-semibold">Tilføj til kurven</p>
+          <p className="font-semibold text-white">Tilføj til kurven</p>
         </button>
       </div>
       {isToasterShown && <SuccessToaster title={info.title} />}
