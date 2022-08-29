@@ -88,16 +88,20 @@ const Kasse = ({
 
   return (
     <div>
-      <div className="flex items-center justify-center mt-24 mb-24">
+      <div
+        className={`flex items-center justify-center ${
+          id == "" ? "w-0 h-0" : "w-auto h-auto mt-8 mb-8"
+        }`}
+      >
         <div
           id="reepay-checkout"
-          className={`w-[500px] h-[500px] ${id == "" ? "hidden" : "block"}`}
+          className={` ${id == "" ? "hidden" : "w-[500px] h-[500px] block"}`}
         ></div>
       </div>
       {id == "" ? (
         <>
           {products.length == 0 ? (
-            <div className="flex flex-col items-center justify-center mt-24 mb-24 gap-y-16">
+            <div className="flex flex-col items-center justify-center mt-24 gap-y-16">
               <h1 className="text-4xl font-bold">Din indkøbsliste er tom!</h1>
               <button
                 className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
@@ -115,12 +119,12 @@ const Kasse = ({
               >
                 Køb nu
               </button>
+              <Products
+                heading={"Andre købte også"}
+                products={mostBoughtProducts}
+              />
             </div>
           )}
-          <Products
-            heading={"Andre købte også"}
-            products={mostBoughtProducts}
-          />
         </>
       ) : (
         <div></div>
