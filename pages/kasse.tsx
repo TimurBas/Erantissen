@@ -105,6 +105,12 @@ const Cart = () => {
             </div>
             <div className="flex items-center justify-center basis-1/3">03</div>
           </div>
+          <button
+            className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
+            onClick={handleCheckout}
+          >
+            Betal nu
+          </button>
         </>
       ) : (
         <></>

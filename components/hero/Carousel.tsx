@@ -17,8 +17,8 @@ const Carousel = ({ heros }: { heros: HeroModel[] }) => {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center relative">
+    <div className={`flex flex-col transition-all`}>
+      <div className="relative flex items-center">
         <LeftArrow handleClick={handleClick} />
         {imageUrlsLength == 0 ? (
           <p>loading</p>
