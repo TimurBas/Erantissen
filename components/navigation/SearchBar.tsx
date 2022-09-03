@@ -32,20 +32,18 @@ const SearchBar = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex z-10">
-        <div className="relative w-[600px]">
-          <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-            <AiOutlineSearch className="w-6 h-6 text-gray-500" />
-          </div>
-          <input
-            type="text"
-            value={keyword}
-            onChange={(e) => setKeyword(e.currentTarget.value)}
-            className="block p-2 pl-10 pt-3 w-full text-sm text-gray-800 bg-white rounded-2xl placeholder:text-gray-800 focus:outline-none"
-            placeholder="Søg efter et produkt"
-            required
-          />
+      <div className="relative md:w-[300px] 2xl:w-[600px] z-10">
+        <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+          <AiOutlineSearch className="w-6 h-6 text-gray-500" />
         </div>
+        <input
+          type="text"
+          value={keyword}
+          onChange={(e) => setKeyword(e.currentTarget.value)}
+          className="block p-2 pl-10 pt-3 w-full text-sm text-gray-800 bg-primary rounded-2xl placeholder:text-gray-800 focus:outline-none"
+          placeholder="Søg efter et produkt"
+          required
+        />
       </div>
       {keyword == "" ? (
         <></>
