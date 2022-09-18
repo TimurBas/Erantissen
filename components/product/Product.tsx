@@ -2,20 +2,22 @@ import { ProductModel } from "../../shared/responses/ProductResponse";
 import NextLink from "next/link";
 import { addProductToCart } from "../../redux/slices/productSlice";
 import { useAppDispatch } from "../../redux/hooks";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import SuccessToaster from "../toasters/SuccessToaster";
 
-const Product = ({ info }: { info: ProductModel }) => {
-  const [isToasterShown, setIsToasterShown] = useState(false);
+const Product = ({
+  info,
+  setToastTitles,
+}: {
+  info: ProductModel;
+  setToastTitles: Dispatch<SetStateAction<string[]>>;
+}) => {
   const dispatch = useAppDispatch();
   const productPath = `/${info.categoryTitle}/${info.subcategoryTitle}/${info.title}`;
 
   const handleClick = () => {
     dispatch(addProductToCart({ ...info, cartAmount: 1 }));
-    setIsToasterShown(true);
-    setTimeout(() => {
-      setIsToasterShown(false);
-    }, 3000);
+    setToastTitles((toastTitles) => [...toastTitles, info.title]);
   };
 
   return (
@@ -41,7 +43,6 @@ const Product = ({ info }: { info: ProductModel }) => {
           <p className="font-semibold text-white">Tilføj til kurven</p>
         </button>
       </div>
-      {isToasterShown && <SuccessToaster title={info.title} />}
     </div>
   );
 };

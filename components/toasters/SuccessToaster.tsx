@@ -1,8 +1,9 @@
 import React from "react";
+import { Expire } from "../../shared/Expire";
 
 const SuccessToaster = ({ title }: { title: string }) => {
   return (
-    <div className="fixed bottom-4 right-10 z-10">
+    <Expire delay={5000}>
       <div
         id="toast-success"
         className="flex items-center p-4 mb-4 w-full max-w-xs text-white bg-success-toast-dark rounded-lg shadow  "
@@ -49,7 +50,7 @@ const SuccessToaster = ({ title }: { title: string }) => {
           </svg>
         </button> */}
       </div>
-    </div>
+    </Expire>
   );
 };
 
