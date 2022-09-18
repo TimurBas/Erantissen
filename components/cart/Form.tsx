@@ -16,12 +16,11 @@ const Form = () => {
               className="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 bg-gray-200 border rounded appearance-none focus:outline-none focus:bg-white"
               id="grid-first-name"
               type="text"
-              placeholder="Jane"
-              required
+              placeholder="Lonnie"
             />
-            <p className="text-xs italic text-red-500">
+            {/* <p className="text-xs italic text-red-500">
               Please fill out this field.
-            </p>
+            </p> */}
           </div>
           <div className="w-full px-3 md:w-1/2">
             <label
@@ -34,7 +33,7 @@ const Form = () => {
               className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name"
               type="text"
-              placeholder="Doe"
+              placeholder="Nielsen"
             />
           </div>
         </div>
@@ -64,7 +63,7 @@ const Form = () => {
               className="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-phone"
               type="text"
-              placeholder="88 88 88 88"
+              placeholder="86 89 28 83"
             />
           </div>
         </div>

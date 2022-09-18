@@ -48,12 +48,12 @@ const Cart = () => {
     }
   }, [id]);
 
-  const handleCheckout = async () => {
-    const requestObj = {
+  const createRequestObject = () => {
+    return {
       locale: "da_DK",
       payment_methods: ["card", "mobilepay"],
       order: {
-        handle: "order-23232",
+        handle: "order-23232322",
         customer: {
           handle: "customer-123",
           first_name: "John",
@@ -72,6 +72,10 @@ const Cart = () => {
         currency: "DKK",
       },
     };
+  };
+
+  const handleCheckout = async () => {
+    const requestObj = createRequestObject();
 
     const response = await fetch(`${CONFIG.localUrl}/Checkout`, {
       method: "POST",
@@ -97,21 +101,23 @@ const Cart = () => {
         ></div>
       </div>
       {id == "" ? (
-        <>
-          <div className="flex flex-row ">
-            <div className="flex flex-col justify-center mt-8 mb-8 flex-start gap-y-8 basis-2/3">
-              <h1 className="text-4xl font-bold">Kassen</h1>
-              <Form />
+        <div className="grid grid-cols-[60%_40%] w-full mt-10 mb-10">
+          <div className="ml-48">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex flex-col justify-center mt-8 mb-8 flex-start gap-y-8 basis-2/3">
+                <h1 className="text-4xl font-bold">Dine oplysninger</h1>
+                <Form />
+              </div>
+              <button
+                className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
+                onClick={handleCheckout}
+              >
+                Fortsæt til betaling
+              </button>
             </div>
-            <div className="flex items-center justify-center basis-1/3">03</div>
           </div>
-          <button
-            className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
-            onClick={handleCheckout}
-          >
-            Betal nu
-          </button>
-        </>
+          <div className="mr-48">hej</div>
+        </div>
       ) : (
         <></>
       )}
@@ -120,15 +126,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-//       <h1 className="text-4xl font-bold">Kassen</h1>
-//       <div className="flex flex-col items-center justify-center w-full mt-8 gap-y-10">
-//         <Form />
-//       </div>
-
-//        <button
-//     className="px-5 py-3 text-xl font-semibold text-white transition-all bg-green-500 rounded-full hover:bg-green-700"
-//     onClick={handleCheckout}
-//   >
-//     Betal nu
-//   </button>

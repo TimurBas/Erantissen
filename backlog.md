@@ -2,3 +2,5 @@
 - Clicking intensively on hero arrows selects text on the page
 - ~~ Stacking toasters when multiple products are added very quickly consequently ~~
 - Searchbar fix outside click
+- Form validation checkout
+- List of products details etc. in checkout
