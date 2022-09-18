@@ -76,7 +76,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex hover:text-stone-300 dark:hover:text-stone-600">
-                <a href="#" target="_blank">
+                <a href="https://www.instagram.com/erantissen" target="_blank">
                   <div className="flex items-center gap-2 hover:animate-instagram transition-all">
                     <BsInstagram className="w-5 h-5 " />
                     <p>Instagram</p>
