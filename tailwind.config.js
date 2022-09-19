@@ -15,6 +15,7 @@ module.exports = {
         "footer-dark": "#F5F6F6",
         "success-toast-dark": "#11bf43",
         facebook: "#4267b3",
+        "cart-products-dark": "#17453d",
       },
       keyframes: {
         fade: {
