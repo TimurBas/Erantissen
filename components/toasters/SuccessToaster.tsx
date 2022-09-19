@@ -3,7 +3,7 @@ import { Expire } from "../../shared/Expire";
 
 const SuccessToaster = ({ title }: { title: string }) => {
   return (
-    <Expire delay={5000}>
+    <Expire delay={5000 }>
       <div
         id="toast-success"
         className="flex items-center p-4 mb-4 w-full max-w-xs text-white bg-success-toast-dark rounded-lg shadow  "
