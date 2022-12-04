@@ -4,3 +4,6 @@
 - Searchbar fix outside click
 - Form validation checkout
 - List of products details etc. in checkout
+- Refactor UI stuff from 
+    - `kasse.tsx`
+    - `tjekud.tsx`
