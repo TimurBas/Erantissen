@@ -41,4 +41,13 @@ const fetchProduct = async (productTitle: string) => {
     return res;
 };
 
-export {fetchHeros, fetchMostBoughtProducts, fetchCategory, fetchSubcategory, fetchProduct}
+const fetchAllProducts = async () => {
+  const response = await fetch(`${CONFIG.localUrl}/Product`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+  const json = await response.json();
+  return json;
+}
+
+export {fetchAllProducts, fetchHeros, fetchMostBoughtProducts, fetchCategory, fetchSubcategory, fetchProduct}

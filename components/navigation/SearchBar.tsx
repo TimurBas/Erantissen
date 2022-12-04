@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import CONFIG from "../../config.json";
+import { fetchAllProducts } from "../../client/client";
 import { ProductModel } from "../../shared/responses/ProductResponse";
 import SearchResults from "./SearchResults";
 
@@ -9,15 +9,11 @@ const SearchBar = () => {
   const [keyword, setKeyword] = useState<string>("");
 
   useEffect(() => {
-    async function fetchAllProducts() {
-      const response = await fetch(`${CONFIG.localUrl}/Product`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      });
-      const json = await response.json();
-      setProducts(json);
+    async function setAllProducts() {
+      const json = await fetchAllProducts();
+      setProducts(json)
     }
-    fetchAllProducts();
+    setAllProducts();
   }, []);
 
   // console.log(keyword);
