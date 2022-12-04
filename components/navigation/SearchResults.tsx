@@ -1,18 +1,24 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { ProductModel } from "../../shared/responses/ProductResponse";
 import NextLink from "next/link";
+import useComponentVisible from "../../hooks/useComponentVisible";
 
 const SearchResults = ({
   filteredProducts,
   keyword,
   setKeyword,
+  isComponentVisible
 }: {
   filteredProducts: ProductModel[];
   keyword: string;
   setKeyword: Dispatch<SetStateAction<string>>;
+  isComponentVisible: boolean
 }) => {
+
   return (
-    <div className="max-h-0 overflow-y-visible z-0 absolute">
+    <>
+    {isComponentVisible && (
+      <div className="max-h-0 overflow-y-visible z-0 absolute">
       <ul className="bg-stone-300 list-none space-y-2 pt-14 rounded-2xl">
         {filteredProducts.map((filteredProduct) => {
           return (
@@ -51,6 +57,8 @@ const SearchResults = ({
         })}
       </ul>
     </div>
+    )}
+    </>
   );
 };
 
