@@ -4,7 +4,7 @@ import NavigationBar from "../navigation/NavigationBar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="bg-primary dark:bg-primary-dark">
+    <div className="flex flex-col min-h-screen bg-primary dark:bg-primary-dark flex-start">
       <NavigationBar />
       <main>{children}</main>
       <Footer />
