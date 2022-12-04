@@ -33,7 +33,7 @@ const Cart = () => {
   useEffect(() => {
     if (id) {
       reepay.addEventHandler(Reepay.Event.Accept, (data: EmbeddedResponse) => {
-        console.log(data);
+        // console.log(data);
         router.push({
           pathname: "/kasse/success",
           query: {
@@ -42,7 +42,7 @@ const Cart = () => {
         });
       });
       reepay.addEventHandler(Reepay.Event.Error, (data: EmbeddedResponse) => {
-        console.log(data);
+        // console.log(data);
         // TODO TELL THAT SOMETHING WENT WRONG AND GO TO CHECKOUT AGAIN
       });
     }

@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import CONFIG from "../../config.json";
-// import useComponentVisible from "../../hooks/useComponentVisible";
 import { ProductModel } from "../../shared/responses/ProductResponse";
 import SearchResults from "./SearchResults";
 
 const SearchBar = () => {
   const [products, setProducts] = useState<ProductModel[]>([]);
   const [keyword, setKeyword] = useState<string>("");
-  // const { ref, isComponentVisible } = useComponentVisible(true);
 
   useEffect(() => {
     async function fetchAllProducts() {
@@ -22,13 +20,13 @@ const SearchBar = () => {
     fetchAllProducts();
   }, []);
 
-  console.log(keyword);
+  // console.log(keyword);
 
-  // const isIncludingKeyword = (input: string) =>
-  //   input.toLowerCase().includes(keyword.toLowerCase());
+  const isIncludingKeyword = (input: string) =>
+    input.toLowerCase().includes(keyword.toLowerCase());
 
-  const filteredProducts = products.filter((p) => true);
-  // const filteredProducts = products.filter((p) => isIncludingKeyword(p.title));
+  // const filteredProducts = products.filter((p) => true);
+  const filteredProducts = products.filter((p) => isIncludingKeyword(p.title));
 
   return (
     <div className="flex flex-col">
@@ -48,15 +46,6 @@ const SearchBar = () => {
       {keyword == "" ? (
         <></>
       ) : (
-        // <div ref={ref}>
-        //   {isComponentVisible && (
-        //     <SearchResults
-        //       filteredProducts={filteredProducts}
-        //       keyword={keyword}
-        //       setKeyword={setKeyword}
-        //     />
-        //   )}
-        // </div>
         <SearchResults
           filteredProducts={filteredProducts}
           keyword={keyword}
