@@ -4,10 +4,10 @@ import { useAppSelector } from "../redux/hooks";
 import { getProductsSelector } from "../redux/slices/productSlice";
 import { useRouter } from "next/router";
 import { ProductModel } from "../shared/responses/ProductResponse";
-import CONFIG from "../config.json";
 import ArrowToRootPage from "../components/cart/ArrowToRootPage";
 import CartProduct from "../components/cart/CartProduct";
 import { useState } from "react";
+import { fetchMostBoughtProducts } from "../client/client";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -15,14 +15,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: { mostBoughtProducts },
   };
-};
-
-const fetchMostBoughtProducts = async () => {
-  const req = await fetch(`${CONFIG.localUrl}/Product/MostBoughtProducts`, {
-    method: "GET",
-  });
-  const res = await req.json();
-  return res;
 };
 
 type TitleToPriceMapper = {

@@ -1,4 +1,4 @@
-- Code duplication for the fetchMostBoughtProducts function inside index.tsx, [subcategory].tsx etc. etc. possible fix?
+- ~~~ Code duplication for the fetchMostBoughtProducts function inside index.tsx, [subcategory].tsx etc. etc. possible fix? ~~~ 
 - Clicking intensively on hero arrows selects text on the page
 - ~~ Stacking toasters when multiple products are added very quickly consequently ~~
 - Searchbar fix outside click
