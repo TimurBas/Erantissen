@@ -7,3 +7,5 @@
 - Refactor UI stuff from 
     - `kasse.tsx`
     - `tjekud.tsx`
+- Responsiveness
+    - Navbar is not responsive
