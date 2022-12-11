@@ -1,4 +1,4 @@
-import CONFIG from "../config.json";
+import CONFIG from "../../config.json";
 
 const fetchHeros = async () => {
     const req = await fetch(`${CONFIG.localUrl}/Hero`, { method: "GET" });

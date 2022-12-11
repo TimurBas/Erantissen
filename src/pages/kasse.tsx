@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import CONFIG from "../config.json";
+import CONFIG from "../../config.json";
 import { useAppSelector } from "../redux/hooks";
 import { getProductsSelector } from "../redux/slices/productSlice";
 import Form from "../components/cart/Form";
