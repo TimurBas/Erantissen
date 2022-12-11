@@ -5,7 +5,6 @@ export default function useComponentVisible(initialIsVisible: boolean) {
     useState(initialIsVisible);
   const ref = useRef<HTMLDivElement>(null);
 
-  console.log(ref)
   const handleClickOutside = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
     if (ref.current && !ref.current.contains(target)) {

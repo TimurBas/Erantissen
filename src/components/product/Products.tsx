@@ -34,7 +34,7 @@ const Products = ({
       </div>
       <div className="fixed bottom-4 right-10 z-10 w-72">
         {toastTitles.map((toastTitle) => (
-          <SuccessToaster title={toastTitle} />
+          <SuccessToaster key={toastTitle} title={toastTitle} />
         ))}
       </div>
     </>

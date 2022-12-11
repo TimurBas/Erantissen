@@ -24,7 +24,7 @@ const CategoryPage = ({
         <h1 className="font-bold text-4xl">Kategorier</h1>
         <div className="grid grid-cols-5 mt-5">
           {categories.map((title) => (
-            <Category title={title} />
+            <Category key={title} title={title} />
           ))}
         </div>
       </div>

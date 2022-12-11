@@ -88,7 +88,7 @@ const Checkout = ({
                   </h3>
                 </div>
                 {products.map((p) => (
-                  <CartProduct product={p} setPriceAcc={setPriceAcc} />
+                  <CartProduct key={p.title} product={p} setPriceAcc={setPriceAcc} />
                 ))}
                 <ArrowToRootPage />
               </div>
