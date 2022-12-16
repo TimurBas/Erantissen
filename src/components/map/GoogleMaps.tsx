@@ -20,7 +20,7 @@ const position = {
   lat: 56.09173178317564,
   lng: 9.757359211930163,
 };
-function Map() {
+function GoogleMaps() {
   return (
     <div className="flex justify-center items-center mt-10 mb-10 flex-col">
       <h1 className="mb-10 font-bold text-4xl">Find os her!</h1>
@@ -34,4 +34,4 @@ function Map() {
   );
 }
 
-export default React.memo(Map);
+export default React.memo(GoogleMaps);

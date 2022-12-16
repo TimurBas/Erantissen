@@ -1,12 +1,12 @@
 import type { GetServerSideProps, NextPage } from "next";
-import Hero from "../components/hero/Hero";
 import Products from "../components/product/Products";
-import PurchasingProcess from "../components/purchasing-process/PurchasingProcess";
 import Divider from "../components/shared/Divider";
-import Map from "../components/map/Map";
 import { HeroModel } from "../shared/responses/HeroResponse";
 import { ProductModel } from "../shared/responses/ProductResponse";
 import { fetchHeros, fetchMostBoughtProducts } from "../client/client";
+import Hero from "../components/hero/Hero";
+import PurchasingProcess from "../components/purchasing-process/PurchasingProcess";
+import GoogleMaps from "../components/map/GoogleMaps"
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -32,7 +32,7 @@ const Home = ({
       <Divider />
       <Products heading="Mest købte" products={mostBoughtProducts} />
       <Divider />
-      <Map />
+      <GoogleMaps />
     </div>
   );
 };
