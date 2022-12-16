@@ -1,53 +1,44 @@
 import CONFIG from "../../config.json";
 
 const fetchHeros = async () => {
-    const req = await fetch(`${CONFIG.localUrl}/Hero`, { method: "GET" });
-    const res = req.json();
-    return res;
-  };
+  var data = apiFetch(`/Hero`, "GET")
+  return data
+};
   
 const fetchMostBoughtProducts = async () => {
-    const req = await fetch(`${CONFIG.localUrl}/Product/MostBoughtProducts`, {
-        method: "GET",
-    });
-    const res = await req.json();
-    return res;
+  var data = apiFetch(`/Product/MostBoughtProducts`, "GET")
+  return data
 };
 
 const fetchCategory = async (categoryTitle: string) => {
-    const req = await fetch(`${CONFIG.localUrl}/Category/${categoryTitle}`, {
-        method: "GET",
-    });
-    const res = req.json();
-    return res;
+  var data = apiFetch(`/Category/${categoryTitle}`, "GET")
+  return data
 };
 
 const fetchSubcategory = async (subcategoryTitle: string) => {
-    const req = await fetch(
-      `${CONFIG.localUrl}/Subcategory/${subcategoryTitle}`,
-      {
-        method: "GET",
-      }
-    );
-    const res = await req.json();
-    return res;
-  };
+  var data = apiFetch(`/Subcategory/${subcategoryTitle}`, "GET")
+  return data
+};
 
 const fetchProduct = async (productTitle: string) => {
-    const req = await fetch(`${CONFIG.localUrl}/Product/${productTitle}`, {
-      method: "GET",
-    });
-    const res = await req.json();
-    return res;
+  var data = apiFetch(`/Product/${productTitle}`, "GET")
+  return data
 };
 
 const fetchAllProducts = async () => {
-  const response = await fetch(`${CONFIG.localUrl}/Product`, {
-    method: "GET",
+  var data = apiFetch(`/Product`, "GET")
+  return data
+}
+
+const apiFetch = async (endpoint: string, httpVerb: string) => {
+  const response = await fetch(`${CONFIG.localUrl}${endpoint}`, {
+    method: httpVerb,
     headers: { "Content-Type": "application/json" },
   });
-  const json = await response.json();
-  return json;
+
+  const data = await response.json();
+
+  return data;
 }
 
 export {fetchAllProducts, fetchHeros, fetchMostBoughtProducts, fetchCategory, fetchSubcategory, fetchProduct}
