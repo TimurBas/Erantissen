@@ -9,7 +9,7 @@ const Basket = () => {
 
   return (
     <div className="relative flex items-center justify-center p-2 text-gray-800 transition-all dark:text-primary hover:text-gray-500 dark:hover:text-green-200">
-      <button onClick={() => router.push("/tjekud")}>
+      <button onClick={() => router.push("/kasse")}>
         <div className="inset-0">
           <BsBasket2Fill className="w-8 h-8" />
           <p className="font-semibold">Kurv</p>
